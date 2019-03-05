@@ -1,0 +1,137 @@
+import java.util.*;
+public class Employee {
+	
+	//Function for displaying information about all the Employees
+	
+	public void display(int a,int d[],double sal[],String j[],int n[]){
+		 for(int e=0;e<a;e++)
+		 {
+			 int g=0;
+			 g=e+1;
+			 System.out.println(" Employee No. ---> "+g);
+			 System.out.println();
+			 System.out.println(" The Employee ID is -> "+d[e]);
+			 System.out.println(" The name of Employee -> "+j[e]);
+			 System.out.println(" The no. of projects done by Employee is -> "+n[e]);
+			 System.out.println(" The salary of Employee is -> "+sal[e]);
+			 System.out.println();
+		 }
+	}
+
+	//Function for searching of any Employee
+	
+	public void search(int b,int d[],double sal[],String j[],int n[]) {
+		int r=0;
+		 System.out.println(" Enter the Employee ID to get its detail ");
+		 Scanner San=new Scanner(System.in);
+		 r=San.nextInt();
+		 for(int w=0;w<b;w++)
+		 {
+			 if(d[w]==r)
+			 {
+				 System.out.println(" The Employee ID is -> "+d[w]);
+				 System.out.println(" The name of Employee -> "+j[w]);
+				 System.out.println(" The no. of projects done by Employee is -> "+n[w]);
+				 System.out.println(" The salary of Employee is -> "+sal[w]);
+			 }
+		 }
+	}
+	
+	//The main function of program
+	
+	public static void main(String[] args) {
+		Scanner Scan=new Scanner(System.in);
+		int d[]=new int[20];
+		double sal[]=new double[20];
+		int n[]=new int[20];  
+		String j[]=new String[20];
+		int r=0;
+		int a=0;
+		char x;
+		Employee E=new Employee();
+		System.out.println("Enter password");
+		int l=Scan.nextInt();
+		
+		 System.out.println(" Welcome to Employee Information System");
+	         System.out.println();
+		 System.out.println();
+	 System.out.println(" Enter the number of employees for which you want to enter data");
+		 int y=Scan.nextInt();
+		 for(int i=0;i<y;i++)
+		 {
+			 System.out.print(" Enter the Employee ID ->  ");
+			 d[i]=Scan.nextInt();
+			 System.out.print(" Enter the  no. of projects done by Employee ->  ");
+			 n[i]=Scan.nextInt();
+			 System.out.print(" Enter the salary of Employee ->  ");
+			 sal[i]=Scan.nextDouble(); 
+			 System.out.print(" Enter the name of Employee ->  ");
+			 j[i]=Scan.next();
+			 System.out.println();
+		 }
+		 System.out.println(" Do you want search about any of your employee (Y/N)");
+		 char c=Scan.next(".").charAt(0);
+		 if(c=='y'||c=='Y') {
+			 System.out.println();
+			 System.out.println();
+			 
+			 System.out.println(" |Welcome to the search section of the program|");
+			 
+			 E.search(y, d, sal, j, n);
+			 System.out.println();
+		 System.out.println("Do you want to again search about any of your Employee (Y/N)");
+			 x=Scan.next(".").charAt(0);
+			 while(x=='y'||x=='Y')
+			 {
+				 E.search(y, d, sal, j, n);
+				 System.out.println();
+		 System.out.println("Do you want to again search about any of your Employee (Y/N)");
+				 x=Scan.next(".").charAt(0);
+			 }
+			 System.out.println();
+			 System.out.println(" The following section of program is now over");
+		 }
+		 else {
+			 System.out.println();
+			 System.out.println(" The following section of program is not executed");
+		 }
+		 System.out.println(" Do you want to modify any of your employee's record (Y/N)");
+		 char p=Scan.next(".").charAt(0);
+		 if(p=='y'||p=='Y')
+		 {
+			 System.out.println();
+			 System.out.println();
+			 
+			 System.out.println(" |Welcome to the modification section of the program|");
+			
+			 System.out.println();
+			 System.out.println(" Enter the Employee ID for modification of record ");
+			 a=Scan.nextInt();
+			 for(int k=0;k<y;k++) 
+			 {
+				 if(d[k]==a) 
+				 {
+					 System.out.print(" Enter the new  Employee ID ->  ");
+					 d[k]=Scan.nextInt();
+					 System.out.print(" Enter the new name for Employee ->  ");
+					 j[k]=Scan.next();
+				 System.out.print(" Enter the no. of projects done by Employee ->  ");
+					 n[k]=Scan.nextInt();
+					 System.out.print(" Enter the new salary of Employee ->  ");
+					 sal[k]=Scan.nextDouble(); 
+				 }
+			 }
+			 System.out.println();
+			 System.out.println(" The following section of program is now over ");
+		 }
+		 else {
+			 System.out.println();
+			 System.out.println(" The following section of program is not executed");
+		 }
+		 System.out.println();
+		 System.out.println();
+		 System.out.println(" | Here is the details of your employees  |");
+		 System.out.println();
+		 E.display(y,d,sal,j,n);
+    }
+}
